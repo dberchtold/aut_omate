@@ -1,7 +1,7 @@
 FROM       centos:centos7
 
 ENV SONATYPE_WORK /opt/nexus/data
-ENV NEXUS_VERSION 3.0.0-b2015091801
+ENV NEXUS_VERSION 3.0.0-b2015110601
 
 RUN yum install -y \
   curl tar createrepo \
@@ -16,7 +16,7 @@ RUN cd /var/tmp \
 
 RUN mkdir -p /opt/nexus \
   && curl --fail --silent --location --retry 3 \
-    https://download.sonatype.com/nexus/oss/nexus-${NEXUS_VERSION}-bundle.tar.gz \
+    https://download.sonatype.com/nexus/oss/nexus-3.0.0-b2015110601-bundle.tar.gz \
   | gunzip \
   | tar x -C /tmp nexus-${NEXUS_VERSION} \
   && mv /tmp/nexus-${NEXUS_VERSION}/* /opt/nexus/ \
