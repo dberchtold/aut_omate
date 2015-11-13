@@ -35,6 +35,7 @@
     <groupId>anecon.at</groupId>
     <artifactId>helloautomation</artifactId>
   </rootModule>
+  <goals>deploy</goals>
   <aggregatorStyleBuild>true</aggregatorStyleBuild>
   <incrementalBuild>false</incrementalBuild>
   <ignoreUpstremChanges>false</ignoreUpstremChanges>
@@ -50,14 +51,7 @@
   <settings class="jenkins.mvn.DefaultSettingsProvider"/>
   <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
   <reporters/>
-  <publishers>
-    <hudson.maven.RedeployPublisher>
-      <id></id>
-      <url>https://nexus:8443/repository/maven-snapshots/</url>
-      <uniqueVersion>true</uniqueVersion>
-      <evenIfUnstable>false</evenIfUnstable>
-    </hudson.maven.RedeployPublisher>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
   <prebuilders/>
   <postbuilders/>
