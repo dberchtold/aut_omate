@@ -1,4 +1,5 @@
-FROM       centos:centos7
+# FROM centos:centos7
+FROM java:8
 
 ENV SONATYPE_WORK /opt/nexus/data
 ENV NEXUS_VERSION 3.0.0-b2016011501
@@ -7,12 +8,6 @@ RUN yum install -y \
   curl tar createrepo \
   && yum clean all
 
-RUN cd /var/tmp \
-  && curl --fail --silent --location --retry 3 -O \
-  --header "Cookie: oraclelicense=accept-securebackup-cookie; " \
-  http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.rpm \
-  && rpm -Ui jdk-8u60-linux-x64.rpm \
-  && rm -rf jdk-8u60-linux-x64.rpm
 
 RUN mkdir -p /opt/nexus \
   && curl --fail --silent --location --retry 3 \
