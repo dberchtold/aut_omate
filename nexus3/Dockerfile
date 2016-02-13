@@ -14,13 +14,11 @@ RUN cd /var/tmp \
   && rpm -Ui jdk-8u60-linux-x64.rpm \
   && rm -rf jdk-8u60-linux-x64.rpm
 
-RUN mkdir -p /opt/nexus \
-  && curl --fail --silent --location --retry 3 \
+RUN curl --fail --silent --location --retry 3 \
     http://download.sonatype.com/nexus/3/nexus-3.0.0-m7-unix.tar.gz \
   | gunzip \
   | tar x -C /tmp nexus-${NEXUS_VERSION} \
-  && mv /tmp/nexus-${NEXUS_VERSION}/* /opt/nexus/ \
-  && rm -rf /tmp/nexus-${NEXUS_VERSION}
+  && mv -T /tmp/nexus-${NEXUS_VERSION}/ /opt/nexus/
 
   
 RUN mkdir -p /opt/nexus/etc/ssl
