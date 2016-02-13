@@ -55,4 +55,4 @@ VOLUME ${SONATYPE_WORK}
 EXPOSE 8081 8443 18443
 WORKDIR /opt/nexus
 USER nexus
-CMD ./bin/nexus start
+ENTRYPOINT ["/opt/nexus/bin/nexus", "run"]
